@@ -9,8 +9,17 @@
       <span class="text-PURPLE-DARK">Porto Alegre, RS</span>
     </div>
 
-    <div class="flex items-center rounded-md bg-YELLOW-LIGHT p-2">
+    <button
+      type="button"
+      class="relative flex items-center rounded-md bg-YELLOW-LIGHT p-2 transition-colors hover:bg-YELLOW-REGULAR/30"
+    >
       <mat-icon class="text-YELLOW-DARK" svgIcon="ph-fill:shopping-cart" />
-    </div>
+      @if (cart) {
+        <span
+          class="translate-y- absolute -right-[6.5px] -top-[6.5px] h-5 w-5 rounded-full bg-YELLOW-DARK text-sm font-bold text-white"
+          >3</span
+        >
+      }
+    </button>
   </div>
 </header>

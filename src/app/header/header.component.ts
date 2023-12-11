@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPhosphorIconsModule } from 'ngx-phosphor-icons';
 
@@ -8,4 +8,6 @@ import { NgxPhosphorIconsModule } from 'ngx-phosphor-icons';
   imports: [MatIconModule, NgxPhosphorIconsModule],
   templateUrl: './header.component.html',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  @Input() cart = { items: [] };
+}
