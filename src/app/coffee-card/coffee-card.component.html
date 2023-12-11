@@ -1,0 +1,81 @@
+<div
+  style="border-radius: 6px 36px 6px 36px"
+  class="relative flex h-full max-h-80 w-full flex-col gap-8 bg-BASE-CARD p-5"
+>
+  <div class="flex flex-col gap-3">
+    <img
+      [src]="img.path"
+      [alt]="img.alt"
+      class="absolute -top-[15%] left-1/2 h-[120px] w-[120px] -translate-x-1/2"
+    />
+
+    <div class="invisible h-[60px] w-[120px]"></div>
+
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center justify-center gap-2">
+        @for (tag of tags; track $index) {
+          <span
+            class="rounded-full bg-YELLOW-LIGHT px-2 py-1 text-xs font-bold text-YELLOW-DARK"
+            >{{ tag.toUpperCase() }}</span
+          >
+        }
+      </div>
+
+      <div class="flex flex-col items-center justify-center gap-2">
+        <h3 class="font-display text-xl font-extrabold text-BASE-SUBTITLE">
+          {{ name }}
+        </h3>
+        <p class="text-center font-display text-sm text-BASE-LABEL">
+          {{ description }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex w-full items-center justify-between">
+    <div class="flex items-baseline justify-center gap-1">
+      <span class="text-sm text-BASE-TEXT">R$</span>
+      <span class="font-display text-2xl font-extrabold text-BASE-TEXT">{{
+        price
+      }}</span>
+    </div>
+    <div class="flex gap-2">
+      <div
+        class="flex items-center justify-center gap-1 rounded-md bg-BASE-BUTTON px-2"
+      >
+        <button type="button" (click)="qtdItens.stepDown()">
+          <mat-icon
+            style="height: 14px; width: 14px"
+            svgIcon="ph-bold:minus"
+            class="text-sm text-PURPLE-REGULAR"
+          ></mat-icon>
+        </button>
+
+        <input
+          #qtdItens
+          type="number"
+          min="1"
+          value="1"
+          class="w-full max-w-[28px] appearance-none bg-transparent p-1 text-center leading-[130%] text-BASE-TITLE outline-none"
+        />
+
+        <button type="button" (click)="qtdItens.stepUp()">
+          <mat-icon
+            style="height: 14px; width: 14px"
+            svgIcon="ph-bold:plus"
+            class="text-PURPLE-REGULAR"
+          ></mat-icon>
+        </button>
+      </div>
+
+      <button
+        class="flex items-center justify-center rounded-md bg-PURPLE-DARK p-2"
+      >
+        <mat-icon
+          svgIcon="ph-fill:shopping-cart"
+          class="text-9xl text-white"
+        ></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
