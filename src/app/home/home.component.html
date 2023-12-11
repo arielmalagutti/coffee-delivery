@@ -5,11 +5,23 @@
 
   <ul class="flex flex-col gap-14 pt-8">
     <h2
-      class="font-display text-BASE-TITLE text-3xl font-extrabold leading-[130%]"
+      class="font-display text-3xl font-extrabold leading-[130%] text-BASE-TITLE"
     >
       Nossos cafés
     </h2>
 
-    LISTA DE CAFES
+    <div
+      class="grid grid-cols-2 gap-x-8 gap-y-10 pb-16 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 2xl:gap-x-12"
+    >
+      @for (coffee of coffeeMenu; track $index) {
+        <app-coffee-card
+          [img]="coffee.img"
+          [tags]="coffee.tags"
+          [name]="coffee.name"
+          [description]="coffee.description"
+          [price]="coffee.price"
+        ></app-coffee-card>
+      }
+    </div>
   </ul>
 </div>
