@@ -1,0 +1,78 @@
+<div class="relative h-full w-full bg-BACKGROUND px-40">
+  <app-header></app-header>
+
+  <div class="flex justify-between pt-20">
+    <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-4">
+        <h1 class="font-display text-4xl font-extrabold text-YELLOW-DARK">
+          Uhu! Pedido confirmado
+        </h1>
+
+        <span class="text-xl text-BASE-SUBTITLE"
+          >Agora é só aguardar que logo o café chegará até você</span
+        >
+      </div>
+
+      <div
+        class="flex items-center justify-center bg-gradient-to-br from-YELLOW-DARK to-PURPLE-DARK p-[1px]"
+        style="border-radius: 6px 44px 6px 44px; padding: 1px 1.2px 0.8px 1.1px"
+      >
+        <div
+          class="flex w-full flex-col gap-8 bg-BACKGROUND p-10"
+          style="border-radius: 5px 42px 5px 42px"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center rounded-full bg-PURPLE-REGULAR p-2 text-white"
+            >
+              <mat-icon svgIcon="ph-regular:map-pin"></mat-icon>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-BASE-TEXT"
+                >Entrega em
+                <strong class="font-bold text-BASE-TEXT">{{
+                  "Rua João Daniel Martinelli, 102"
+                }}</strong></span
+              >
+
+              <span class="text-BASE-TEXT">{{
+                "Farrapos - Porto Alegre, RS"
+              }}</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center rounded-full bg-YELLOW-REGULAR p-2 text-white"
+            >
+              <mat-icon svgIcon="ph-regular:timer"></mat-icon>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="text-BASE-TEXT">Previsão de entrega</span
+              ><strong class="font-bold text-BASE-TEXT">{{
+                "20 min - 30 min"
+              }}</strong>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div
+              class="flex items-center rounded-full bg-YELLOW-DARK p-2 text-white"
+            >
+              <mat-icon svgIcon="ph-regular:currency-dollar"></mat-icon>
+            </div>
+            <div class="flex flex-col gap-2">
+              <span class="text-BASE-TEXT">Pagamento na entrega</span
+              ><strong class="font-bold text-BASE-TEXT">{{
+                "PAYMENT METHOD"
+              }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="../../assets/checkout_success_illustration.svg" alt="" />
+  </div>
+</div>

@@ -78,9 +78,10 @@
             class="text-PURPLE-REGULAR"
           ></mat-icon>
           <div class="flex flex-col gap-1">
-            <h2 class="text-base text-BASE-SUBTITLE">Endereço de Entrega</h2>
+            <h2 class="text-base text-BASE-SUBTITLE">Pagamento</h2>
             <span class="text-sm text-BASE-TEXT"
-              >Informe o endereço onde deseja receber seu pedido</span
+              >O pagamento é feito na entrega. Escolha a forma que deseja
+              pagar</span
             >
           </div>
         </div>
@@ -172,14 +173,17 @@
                   </button>
 
                   <input
-                    #qtdItens
+                    #itemAmount
                     type="number"
                     min="1"
                     [value]="cartItem.amount"
                     (keyup.enter)="
-                      cartService.updateInCart(cartItem, +qtdItens.value)
+                      cartService.updateInCart(cartItem, +itemAmount.value)
                     "
-                    (blur)="cartService.updateInCart(cartItem, +qtdItens.value)"
+                    (blur)="
+                      cartService.updateInCart(cartItem, +itemAmount.value)
+                    "
+                    (input)="checkForNegativeValues(itemAmount)"
                     class="w-full max-w-[28px] appearance-none bg-transparent p-1 text-center leading-[130%] text-BASE-TITLE outline-none"
                   />
 

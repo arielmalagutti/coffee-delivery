@@ -42,7 +42,7 @@ export class CartService {
 
   removeFromCart(cartItem: CartItem) {
     this.cartItems.update((items) =>
-      items.filter((item) => item.coffee.name === cartItem.coffee.name),
+      items.filter((item) => item.coffee.name !== cartItem.coffee.name),
     );
   }
 

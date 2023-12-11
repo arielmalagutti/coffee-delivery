@@ -79,4 +79,9 @@ export class CheckoutComponent {
   increment(cartItem: CartItem) {
     this.cartService.updateInCart(cartItem, cartItem.amount + 1);
   }
+
+  checkForNegativeValues(itemAmount: HTMLInputElement) {
+    if (Number(itemAmount.value) < 0)
+      itemAmount.value = String(Number(itemAmount.value) * -1);
+  }
 }

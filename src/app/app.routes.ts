@@ -2,8 +2,10 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SuccessComponent } from './success/success.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', component: CheckoutComponent },
+  { path: 's', component: HomeComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: '', component: SuccessComponent },
 ];
