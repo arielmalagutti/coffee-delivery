@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, WritableSignal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPhosphorIconsModule } from 'ngx-phosphor-icons';
 
@@ -8,7 +8,7 @@ import { CoffeeCardComponent } from '../coffee-card/coffee-card.component';
 
 import COFFEES from '../../storage/COFFEES.json';
 
-type Coffee = {
+export type Coffee = {
   name: string;
   description: string;
   tags: string[];

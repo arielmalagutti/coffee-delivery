@@ -1,4 +1,4 @@
-<div class="relative bg-BACKGROUND px-40">
+<div class="relative h-full w-full bg-BACKGROUND px-40">
   <app-header></app-header>
 
   <app-hero-section></app-hero-section>
@@ -14,13 +14,7 @@
       class="grid grid-cols-2 gap-x-8 gap-y-10 pb-16 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 2xl:gap-x-12"
     >
       @for (coffee of coffeeMenu; track $index) {
-        <app-coffee-card
-          [img]="coffee.img"
-          [tags]="coffee.tags"
-          [name]="coffee.name"
-          [description]="coffee.description"
-          [price]="coffee.price"
-        ></app-coffee-card>
+        <app-coffee-card [coffee]="coffee"></app-coffee-card>
       }
     </div>
   </ul>

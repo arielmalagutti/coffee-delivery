@@ -1,6 +1,14 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  WritableSignal,
+  inject,
+  signal,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxPhosphorIconsModule } from 'ngx-phosphor-icons';
+import { CartService } from '../services/cart.service';
+import { Coffee } from '../home/home.component';
 
 @Component({
   selector: 'app-coffee-card',
@@ -9,11 +17,17 @@ import { NgxPhosphorIconsModule } from 'ngx-phosphor-icons';
   templateUrl: './coffee-card.component.html',
 })
 export class CoffeeCardComponent {
-  @Input() img = { path: '', alt: '' };
+  cartService = inject(CartService);
 
-  @Input() tags = [''];
+  @Input() coffee!: Coffee;
 
-  @Input() name = '';
-  @Input() description = '';
-  @Input() price = '';
+  amount: WritableSignal<number> = signal(1);
+
+  decrement() {
+    this.amount.set(this.amount() - 1);
+  }
+
+  increment() {
+    this.amount.set(this.amount() + 1);
+  }
 }

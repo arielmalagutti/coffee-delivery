@@ -4,8 +4,8 @@
 >
   <div class="flex flex-col gap-3">
     <img
-      [src]="img.path"
-      [alt]="img.alt"
+      [src]="coffee.img.path"
+      [alt]="coffee.img.alt"
       class="absolute -top-[20px] left-1/2 h-[120px] w-[120px] -translate-x-1/2"
     />
 
@@ -13,7 +13,7 @@
 
     <div class="flex flex-col gap-4">
       <div class="flex items-center justify-center gap-1">
-        @for (tag of tags; track $index) {
+        @for (tag of coffee.tags; track $index) {
           <span
             class="rounded-full bg-YELLOW-LIGHT px-2 py-1 text-center text-xs font-bold text-YELLOW-DARK"
             >{{ tag.toUpperCase() }}</span
@@ -23,10 +23,10 @@
 
       <div class="flex flex-col items-center justify-center gap-2">
         <h3 class="font-display text-xl font-extrabold text-BASE-SUBTITLE">
-          {{ name }}
+          {{ coffee.name }}
         </h3>
         <p class="text-center font-display text-sm text-BASE-LABEL">
-          {{ description }}
+          {{ coffee.description }}
         </p>
       </div>
     </div>
@@ -36,14 +36,14 @@
     <div class="flex items-baseline justify-center gap-1">
       <span class="text-sm text-BASE-TEXT">R$</span>
       <span class="font-display text-2xl font-extrabold text-BASE-TEXT">{{
-        price
+        coffee.price
       }}</span>
     </div>
     <div class="flex gap-2">
       <div
         class="flex items-center justify-center gap-1 rounded-md bg-BASE-BUTTON px-2"
       >
-        <button type="button" (click)="qtdItens.stepDown()">
+        <button type="button" (click)="decrement()">
           <mat-icon
             style="height: 14px; width: 14px"
             svgIcon="ph-bold:minus"
@@ -55,11 +55,12 @@
           #qtdItens
           type="number"
           min="1"
-          value="1"
+          [value]="amount()"
+          (input)="amount.set(+qtdItens.value)"
           class="w-full max-w-[28px] appearance-none bg-transparent p-1 text-center leading-[130%] text-BASE-TITLE outline-none"
         />
 
-        <button type="button" (click)="qtdItens.stepUp()">
+        <button type="button" (click)="increment()">
           <mat-icon
             style="height: 14px; width: 14px"
             svgIcon="ph-bold:plus"
@@ -70,6 +71,7 @@
 
       <button
         class="flex items-center justify-center rounded-md bg-PURPLE-DARK p-2"
+        (click)="cartService.addToCart(coffee, amount())"
       >
         <mat-icon
           svgIcon="ph-fill:shopping-cart"
