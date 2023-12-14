@@ -90,11 +90,13 @@
           <button
             type="button"
             [ngClass]="{
-              'border-PURPLE-DARK bg-PURPLE-LIGHT': paymentMethod === 'CREDIT',
-              'border-transparent bg-BASE-BUTTON': paymentMethod !== 'CREDIT'
+              'border-PURPLE-DARK bg-PURPLE-LIGHT':
+                paymentService.paymentMethod === 'CREDIT',
+              'border-transparent bg-BASE-BUTTON':
+                paymentService.paymentMethod !== 'CREDIT'
             }"
             class="flex items-center gap-3 rounded-md border p-3"
-            (click)="paymentMethod = 'CREDIT'"
+            (click)="paymentService.paymentMethod = 'CREDIT'"
           >
             <mat-icon
               svgIcon="ph-regular:credit-card"
@@ -106,11 +108,13 @@
           <button
             type="button"
             [ngClass]="{
-              'border-PURPLE-DARK bg-PURPLE-LIGHT': paymentMethod === 'DEBIT',
-              'border-transparent bg-BASE-BUTTON': paymentMethod !== 'DEBIT'
+              'border-PURPLE-DARK bg-PURPLE-LIGHT':
+                paymentService.paymentMethod === 'DEBIT',
+              'border-transparent bg-BASE-BUTTON':
+                paymentService.paymentMethod !== 'DEBIT'
             }"
             class="flex items-center gap-3 rounded-md border p-3"
-            (click)="paymentMethod = 'DEBIT'"
+            (click)="paymentService.paymentMethod = 'DEBIT'"
           >
             <mat-icon
               svgIcon="ph-regular:bank"
@@ -122,11 +126,13 @@
           <button
             type="button"
             [ngClass]="{
-              'border-PURPLE-DARK bg-PURPLE-LIGHT': paymentMethod === 'MONEY',
-              'border-transparent bg-BASE-BUTTON': paymentMethod !== 'MONEY'
+              'border-PURPLE-DARK bg-PURPLE-LIGHT':
+                paymentService.paymentMethod === 'MONEY',
+              'border-transparent bg-BASE-BUTTON':
+                paymentService.paymentMethod !== 'MONEY'
             }"
             class="flex items-center gap-3 rounded-md border p-3"
-            (click)="paymentMethod = 'MONEY'"
+            (click)="paymentService.paymentMethod = 'MONEY'"
           >
             <mat-icon
               svgIcon="ph-regular:money"

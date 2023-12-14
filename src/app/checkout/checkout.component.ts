@@ -7,8 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CartItem, CartService } from '../services/cart.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-type PaymentMethod = 'CREDIT' | 'DEBIT' | 'MONEY' | null;
+import { PaymentMethodService } from '../services/payment-method.service';
 
 @Component({
   selector: 'app-checkout',
@@ -24,11 +23,10 @@ type PaymentMethod = 'CREDIT' | 'DEBIT' | 'MONEY' | null;
   templateUrl: './checkout.component.html',
 })
 export class CheckoutComponent {
-  paymentMethod: PaymentMethod = null;
-
   cartService = inject(CartService);
   fb = inject(FormBuilder);
   http = inject(HttpClient);
+  paymentService = inject(PaymentMethodService);
 
   form = this.fb.nonNullable.group({
     cep: ['', Validators.required],
