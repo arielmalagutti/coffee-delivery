@@ -8,6 +8,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CartItem, CartService } from '../services/cart.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PaymentMethodService } from '../services/payment-method.service';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -19,6 +20,7 @@ import { PaymentMethodService } from '../services/payment-method.service';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule,
   ],
   templateUrl: './checkout.component.html',
 })
@@ -27,6 +29,7 @@ export class CheckoutComponent {
   fb = inject(FormBuilder);
   http = inject(HttpClient);
   paymentService = inject(PaymentMethodService);
+  router = inject(Router);
 
   form = this.fb.nonNullable.group({
     cep: ['', Validators.required],
@@ -81,5 +84,11 @@ export class CheckoutComponent {
   checkForNegativeValues(itemAmount: HTMLInputElement) {
     if (Number(itemAmount.value) < 0)
       itemAmount.value = String(Number(itemAmount.value) * -1);
+  }
+
+  confirmOrder() {
+    if (this.form.valid) {
+      this.router.navigate(['success']);
+    }
   }
 }

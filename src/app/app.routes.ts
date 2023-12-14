@@ -5,7 +5,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccessComponent } from './success/success.component';
 
 export const routes: Routes = [
-  { path: 's', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: '', component: SuccessComponent },
+  { path: 'success', component: SuccessComponent },
+  { path: '**', redirectTo: 'home' },
 ];
